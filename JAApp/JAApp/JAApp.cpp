@@ -5,27 +5,21 @@
 
 //extern "C" int _stdcall MyProc1 (DWORD x, DWORD y);
 //extern "C" int _stdcall MyProc2 (DWORD x, DWORD y);
-//extern "C" {void __declspec(dllimport) MyProc2(int x, int y);}
-typedef int(_stdcall *MyProc2)(int, int);
+typedef void(*MyProc2)(int, int);
 
-int _tmain(int argc, _TCHAR* argv[]) 
-{ 
+int _tmain(int argc, _TCHAR* argv[])  { 
 	//MyProc2(2,3);
-	HINSTANCE dynamicznie = LoadLibraryA("JADll");
-	if(dynamicznie==nullptr)
-	{
-		return 0;
-	}
+	HINSTANCE DynamicLib = LoadLibraryA("JADll");
+	if (!DynamicLib) return 0;
 
-	MyProc2 ProcDynamicznie = (MyProc2)GetProcAddress(dynamicznie, "MyProc2");
+	MyProc2 FunctionPtr = (MyProc2)GetProcAddress(DynamicLib, "MyProc2");
 	
-	if(ProcDynamicznie)
-	{
-		int x = 0x7FFFFFFF, y = 4, z = 0;
-		z = ProcDynamicznie (x, y);
+	if(FunctionPtr) {
+		int x = 0x7FFFFFFF, y = 4;
+		FunctionPtr(x, y);
 	}
 
-	FreeLibrary(dynamicznie);
+	FreeLibrary(DynamicLib);
 	
 	return 0; 
 }
