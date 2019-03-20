@@ -5,7 +5,7 @@
 
 //extern "C" int _stdcall MyProc1 (DWORD x, DWORD y);
 //extern "C" int _stdcall MyProc2 (DWORD x, DWORD y);
-typedef void(*MyProc2)(int, int);
+typedef void(__stdcall *MyProc2)(int, int);
 
 int _tmain(int argc, _TCHAR* argv[])  { 
 	//MyProc2(2,3);
