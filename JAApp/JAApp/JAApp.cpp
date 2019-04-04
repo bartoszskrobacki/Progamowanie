@@ -3,11 +3,9 @@
 #include "stdafx.h" 
 #include <windows.h>
 #include "JAApp.h"
-//extern "C" int _stdcall MyProc1 (DWORD x, DWORD y);
-//extern "C" int _stdcall MyProc2 (DWORD x, DWORD y);
-typedef void(__stdcall *MyProc2)(int, int);
 
 int _tmain(int argc, _TCHAR* argv[])  { 
+
 	char szString[] = {'A','G','I','K','S','Z','J', 0xFF}; // definicja ciagu znakow 
 
 	printf("FindChar_1 %s\n", (FindChar_1()==1 ? "Found J" : "Not Found J"));
@@ -43,13 +41,15 @@ int _tmain(int argc, _TCHAR* argv[])  {
 	for(int i=0; i<4; i++){
 	printf("Czas przetwarzania 6: %i\n", ReadTime_1(FindChar_6));
 	}
-
+	printf("\n");
+	for(int i=0; i<4; i++){
+	printf("Czas przetwarzania: %i\n", ReadTime_1(FindChar));
+	}
 
 
 
 	MessageBox (NULL, L"Wyci¹gnij wnioski", L"Lab. 2", MB_OK);
 
-
-	
 	return 0; 
+	
 }

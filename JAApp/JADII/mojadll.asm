@@ -126,26 +126,27 @@ FindChar_3 ENDP					; koniec FindChar_3
 ;* EAX - BOOL TRUE Found, FALSE not found * 
 ;* * 
 ;**************************************************************************** 
-FindChar_4 PROC NEAR			; deklaracja procedury FindChar_4 
-     MOV ESI, OFFSET DataString
+FindChar_4 PROC NEAR					; deklaracja procedury FindChar_4
+	MOV ESI, 0							; zaladuj indeks lancucha &#39;DataString&#39; do ESI
+	MOV AH, 'J'							; zaladuj kod litery &#39;J&#39; do rej. AH
 Check_End:
-	;CMP BYTE PTR [ESI], 0FFH
-	MOV AH, BYTE PTR [ESI]
-	SUB AH, 0FFH
-	JE Not_Find
-	MOV AH, [ESI]
-	SUB AH, 'J'
-	JE Got_Equal
-	ADD ESI, 1
-	JMP Check_End
+	CMP DataString[ESI], 0FFH			; czy koniec lancucha (znak specjalny FF)?
+	JE Not_Find							; znaleziono znak konca (wartownik)
+	CMP AX, WORD PTR DataString[ESI]	; porownaj znak z elementem lancucha &#39;DataString&#39;
+	JE Got_Equal						; znaleziono znak!
+	ADD SI, 1							; inkrementuj indeks
+	JMP Check_End						; petla wyszukiwania
 Got_Equal:
-	MOV EAX,1
-	RET
+	MOV DL, DataString[ESI]				; zaladuj znaleziony znak do DL
+	JMP Done
 Not_Find:
-	RET
+	MOV EAX,0							; nie znaleziono znaku
+	RET									; powrot z procedury
+Done:
+	MOV EAX,1							; znaleziono znak
+	RET									; powrot z procedury
+FindChar_4 ENDP							; koniec FindChar_4
 
-									; powrot z procedury 
-FindChar_4 ENDP					; koniec FindChar_4 
 ;**************************************************************************** 
 ;* Procedura FindChar_5 wyszukiwania znaku 'J' w ciagu 'DataString' * 
 ;* * 
@@ -212,6 +213,22 @@ Done:
     MOV EAX,1					; znaleziono znak 
     RET							; powrot z procedury 
 FindChar_6 ENDP					; koniec FindChar_6 
+;****************************************************************************
+;****************************************************************************
+FindChar PROC NEAR				; deklaracja procedury FindChar
+    MOV ESI, OFFSET DataString
+Check_End:
+	CMP BYTE PTR [ESI], 0FFH
+	JE Not_Find
+	CMP BYTE PTR [ESI], 'J'
+	JE Got_Equal
+	INC ESI
+	JMP Check_End
+Got_Equal:
+	MOV EAX,1
+Not_Find:
+	RET
+FindChar ENDP					; koniec FindChar
 ;****************************************************************************
 ;* Procedura ReadTime_1 pomiaru czasu wykonania procedury FindChar_1 * 
 ;* * 

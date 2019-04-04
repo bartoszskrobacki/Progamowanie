@@ -1,2 +1,2 @@
 #pragma once
-void __declspec(dllexport)MyProc2(int x,int y);
+void __declspec(dllexport)FindChar_1();
