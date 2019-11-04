@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Poker1.jnlp">
+  <information>
+    <title>Poker1</title>
+    <vendor>Bartosz</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Poker1.jar" size="8088094" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="poker1.Poker1"  name="Poker1" />
+  <update check="always"/>
+</jnlp>
