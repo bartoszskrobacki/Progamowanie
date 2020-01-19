@@ -25,7 +25,7 @@ public class Poker1 extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root;
-        root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        root = FXMLLoader.load(getClass().getResource("viewcontroller/FXMLDocument.fxml"));
         
         Scene scene = new Scene(root);
         

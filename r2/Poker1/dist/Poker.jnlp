@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Poker.jar" size="16172047" download="eager" />
+    <jar href="Poker.jar" size="8091492" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="Poker1"  name="Poker" />
   <update check="always"/>
