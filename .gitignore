@@ -32,3 +32,9 @@
 *.app
 /JAApp/.vs/JAApp/v15/ipch
 /JAApp/.vs/JAApp/v15
+/r5/PokerWebApplication/build/
+/r5/PokerWebApplication/dist/
+/r5/PokerWebApplication/nbproject/private/
+/r4/PokerWebApplication/build/
+/r4/PokerWebApplication/dist/
+/r4/PokerWebApplication/nbproject/private/
