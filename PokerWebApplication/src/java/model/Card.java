@@ -48,7 +48,7 @@ public class Card {
     
     /**
      *
-     * @return
+     * @return name of the card
      */
     public String getName()
     {
@@ -57,7 +57,7 @@ public class Card {
     
     /**
      *
-     * @return
+     * @return value of the card
      */
     public int getValue()
     {
@@ -66,7 +66,7 @@ public class Card {
      
     /**
      *
-     * @return
+     * @return color of the card
      */
     public String getColor()
     {
@@ -75,13 +75,17 @@ public class Card {
     
     /**
      *
-     * @return
+     * @return ID of the Crd
      */
     public int getIdOfCard()
     {
         return idOfCard;
     }
 
+    /**
+     *
+     * @return combination of name and color
+     */
     public String getNameandColor(){
         return this.getName() + " of " + this.getColor();
     }

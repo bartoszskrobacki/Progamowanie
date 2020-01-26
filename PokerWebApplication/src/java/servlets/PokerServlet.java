@@ -20,7 +20,7 @@ import static org.apache.jasper.tagplugins.jstl.core.Out.output;
 
 /**
  *
- * @author Krzys
+ * @author Bartosz
  */
 @WebServlet(name = "PokerServlet", urlPatterns = {"/PokerServlet"})
 public class PokerServlet extends HttpServlet {
@@ -28,10 +28,7 @@ public class PokerServlet extends HttpServlet {
     
     
     
-    public PokerServlet(){
     
-    
-    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -55,7 +52,8 @@ public class PokerServlet extends HttpServlet {
         }   
         String[] fileName = new String[52];
         prepareFileNames(fileName);
-        String result = null;
+        String result = "null";
+        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
@@ -70,11 +68,7 @@ public class PokerServlet extends HttpServlet {
         
             try{
             result = game.resultToDisplay();
-            
-           
-            
-            
-            
+         
             out.println("<img src=images/" + fileName[game.cardsToDisplay(0)] + ".png height=400 width=200>");
             out.println("<img src=images/" + fileName[game.cardsToDisplay(1)] + ".png height=400 width=200>");
             out.println("<img src=images/" + fileName[game.cardsToDisplay(2)] + ".png height=400 width=200>");
@@ -87,30 +81,29 @@ public class PokerServlet extends HttpServlet {
                  out.println(e.getMessage());
             }
      
-           Cookie cookie;
-             cookie = new Cookie("LastPokerHand", Integer.toString(game.getResult()));
-           response.addCookie(cookie);
-           
-            Cookie[] cookies = request.getCookies();
+       
+            Cookie[] cookies = request.getCookies(); //getting a cookie
            
             for (Cookie aCookie : cookies) {
                 String name = aCookie.getName();
 
                 if (name.equals("LastPokerHand")) {
-                    out.println("The last result value was: " + aCookie.getValue());
+                    out.println("The last result value was: " + aCookie.getValue()); //displaying cookie
                      
                     break;
                 }
                 
 
             }
-             
-            out.println("</center>");
             
+          
+           out.println("</center>");
+           out.println("</body>");
+           out.println("</html>");
             
-            out.println("</body>");
-            out.println("</html>");
-            
+             Cookie cookie;
+           cookie = new Cookie("LastPokerHand", Integer.toString(game.getResult()));
+           response.addCookie(cookie); //setting new cookie
             
             session.setAttribute("historyOfGames", game);
            

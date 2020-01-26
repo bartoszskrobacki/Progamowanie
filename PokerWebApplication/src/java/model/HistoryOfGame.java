@@ -9,8 +9,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- *
- * @author Krzys
+ * Class that is used to contain the result and cards from one poker game.
+ * @author Bartosz
  */
 public class HistoryOfGame {
     
@@ -31,22 +31,51 @@ public class HistoryOfGame {
        
    }
    
-   public String getCard1(){
+    /**
+     *method that  returns string with name of the card
+     * @return name and color of Card
+     */
+    public String getCard1(){
        return card1;
    }
-   public String getCard2(){
+
+    /**
+    *method that  returns string with name of the card
+     * @return name and color of Card
+     */
+    public String getCard2(){
        return card2;
    }
-   public String getCard3(){
+
+    /**
+     *method that  returns string with name of the card
+     * @return name and color of Card
+     */
+    public String getCard3(){
        return card3;
    }
-   public String getCard4(){
+
+    /**
+     *method that  returns string with name of the card
+     * @return name and color of Card
+     */
+    public String getCard4(){
        return card4;
    }
-   public String getCard5(){
+
+    /**
+    *method that  returns string with name of the card
+     * @return name and color of Card
+     */
+    public String getCard5(){
        return card5;
    }
-   public int getResult(){
+
+    /**
+     * method that returns string with the result of the game
+     * @return result of the game
+     */
+    public int getResult(){
        return result;
    }
 }

@@ -17,8 +17,8 @@ import model.Game;
 import model.HistoryOfGame;
 
 /**
- *
- * @author Krzys
+ *  Servlet that is responsible for displaying the history result to the client of our site.
+    * @author Bartosz
  */
 @WebServlet(name = "HistoryServlet", urlPatterns = {"/HistoryServlet"})
 public class HistoryServlet extends HttpServlet {

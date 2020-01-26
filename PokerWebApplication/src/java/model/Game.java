@@ -92,11 +92,13 @@ public String getDisplayResult(){
     historyOfGames = new LinkedList();
     }
 
-    
-public List<HistoryOfGame> getHistoryOfGamesList(){
+    /**
+     * 
+     * @return list of history of games
+     */
+    public List<HistoryOfGame> getHistoryOfGamesList(){
     
     return this.historyOfGames;
-
 }
     
     
